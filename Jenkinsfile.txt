@@ -1,0 +1,43 @@
+pipeline{
+    agent any 
+    environment{
+    }
+    stages{
+        stage('Build'){
+            steps{
+                echo "Build started and completed"
+            }
+        }
+        stage('Unit and integration tests'){
+            steps{
+                echo "Test started and completed"
+            }
+        }
+        stage('Code analysis'){
+            steps{
+                echo "Code Quality Check started and completed"
+            }
+        }
+        stage('Security scan'){
+            steps{
+                echo "Deploy started and completed"
+            }
+        }
+        stage('Deploy to staging'){
+            steps{
+                echo "Deploy to production started and completed"
+            }
+        }
+        stage('Integration test on staging'){
+            steps{
+                sleep time: 10, unit: 'SECONDS'
+                echo "Approval started and completed"
+            }
+        }
+        stage('Deploy to production'){
+            steps{
+                echo "Deploy to production started and completed"
+            }
+        }
+    }
+}
