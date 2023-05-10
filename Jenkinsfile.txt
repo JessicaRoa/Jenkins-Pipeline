@@ -3,38 +3,48 @@ pipeline{
     stages{
         stage('Build'){
             steps{
-                echo "Build started and completed"
+                echo "In this stage, the source code is compiled and packaged into a deployable form"
+                echo "Maven is a build automation tool primarily used for Java projects." 
+                echo "It comes with pre-defined targets for performing certain tasks such as compilation and packaging."
             }
         }
         stage('Unit and integration tests'){
             steps{
-                echo "Test started and completed"
+                echo "In this stage, automated tests are run on the built code to ensure its functionality."
+                echo "Unit tests are run to verify that individual components of the code function as expected."
+                echo "Integration tests are to ensure that these components work correctly when they interact with each other."
+                echo "JUnit is a popular and versatile testing tool for both unit and integration tests in a Java-based pipeline."
             }
         }
         stage('Code analysis'){
             steps{
-                echo "Code Quality Check started and completed"
+                echo "In this stage, the code is reviewed for potential issues to maintain a high code quality."
+                echo "SonarQube is an open-source platform for continuous inspection of code quality to perform automatic reviews."
+                echo "SonarQube can be integrated with Jenkins, allowing it to be part of the continuous integration pipeline."
             }
         }
         stage('Security scan'){
             steps{
-                echo "Deploy started and completed"
+                echo "In this stage, a security scan is performed on the code to find vulnerabilities."
+                echo "OWASP ZAP (Zed Attack Proxy) is a free, open-source web application security scanner."
             }
         }
         stage('Deploy to staging'){
             steps{
-                echo "Deploy to production started and completed"
+                echo "The application is deployed to a staging server, which is a replica of the production environment." 
+                echo "AWS EC2 allows to test the application in a production-like environment."
             }
         }
         stage('Integration test on staging'){
             steps{
-                sleep time: 10, unit: 'SECONDS'
-                echo "Approval started and completed"
+                echo "Integration tests are run on the staging environment to ensure that the application works correctly under production-like conditions."
+                echo "Selenium is a useful tool to automate these tests."
             }
         }
         stage('Deploy to production'){
             steps{
-                echo "Deploy to production started and completed"
+                echo "The application is deployed to the production server where it will be accessible to end-users." 
+                echo "AWS EC2 provides a reliable and scalable environment for the application."
             }
         }
     }
