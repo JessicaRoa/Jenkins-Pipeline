@@ -35,13 +35,6 @@ pipeline{
                 echo "In this stage, a security scan is performed on the code to find vulnerabilities."
                 echo "OWASP ZAP (Zed Attack Proxy) is a free, open-source web application security scanner."
             }
-            post{
-                success {
-                mail to: "jesroahu@gmail.com",
-                subject: "Security scan completed",
-                body: "Security scan was sucessfull"
-                }
-            }
         }
         stage('Deploy to staging'){
             steps{
