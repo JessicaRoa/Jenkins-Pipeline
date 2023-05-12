@@ -15,6 +15,13 @@ pipeline{
                 echo "Integration tests are to ensure that these components work correctly when they interact with each other."
                 echo "JUnit is a popular and versatile testing tool for both unit and integration tests in a Java-based pipeline."
             }
+            post{
+                success {
+                mail to: "jesroahu@gmail.com",
+                subject: "Testing stage completed",
+                body: "Testing unit and integration were sucessfull"
+                }
+            }
         }
         stage('Code analysis'){
             steps{
@@ -27,6 +34,13 @@ pipeline{
             steps{
                 echo "In this stage, a security scan is performed on the code to find vulnerabilities."
                 echo "OWASP ZAP (Zed Attack Proxy) is a free, open-source web application security scanner."
+            }
+            post{
+                success {
+                mail to: "jesroahu@gmail.com",
+                subject: "Security scan completed",
+                body: "Security scan was sucessfull"
+                }
             }
         }
         stage('Deploy to staging'){
